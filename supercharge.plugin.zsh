@@ -24,7 +24,8 @@ setopt APPEND_HISTORY
 HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history"
 HISTSIZE=50000
 SAVEHIST=50000
-HISTORY_IGNORE="(ls|la|ll|lsa|lt|lta|history|clear|..|...|yy)"
+export HISTORY_IGNORE=\
+"(ls|la|ll|lla|lt|lta|tree|history|clear|cd|cd -|..|...|....|yy|anaconda*--token*)"
 HIST_STAMPS="%a %d/%m/%Y %H:%M:%S"
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
@@ -60,7 +61,8 @@ setopt correct
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 # Hypen (- and _) and case insensitive:
-zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]-_}={[:upper:][:lower:]_-}' 'r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' matcher-list \
+    'm:{[:lower:][:upper:]-_}={[:upper:][:lower:]_-}' 'r:|=*' 'l:|=* r:|=*'
 
 # case insesitive:
 # zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
